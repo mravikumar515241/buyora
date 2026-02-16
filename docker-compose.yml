@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: buyora_postgres
+    environment:
+      POSTGRES_DB: buyora_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Ravi@515241
+    ports:
+      - "5432:5432"
