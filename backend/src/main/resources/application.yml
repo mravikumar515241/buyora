@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/buyora_db
+    url: jdbc:postgresql://localhost:5433/buyora_db
     username: postgres
     password: Ravi@515241
   jpa:
