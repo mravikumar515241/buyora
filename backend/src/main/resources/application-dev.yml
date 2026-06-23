@@ -1,0 +1,15 @@
+# Development profile – local and Docker dev
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/buyora_db}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+
+logging:
+  level:
+    com.buyora: DEBUG
+    org.hibernate.SQL: DEBUG

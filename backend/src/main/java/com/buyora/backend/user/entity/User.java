@@ -17,8 +17,14 @@ public class User extends BaseEntity {
 
     @Column(nullable = false)
     private String password;
+    
+    @Column
+    private String phoneNumber;
+    
+    @Column(name = "active")
+    private Boolean active = true;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -36,6 +42,13 @@ public class User extends BaseEntity {
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+    
+    public String getPhoneNumber() { return phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+    
+    public Boolean getActive() { return active; }
+    public void setActive(Boolean active) { this.active = active; }
+    public boolean isActive() { return active != null && active; }
 
     public Set<Role> getRoles() { return roles; }
     public void setRoles(Set<Role> roles) { this.roles = roles; }
